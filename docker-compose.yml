@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    restart: always
+    image: traefik:v2.0
+    container_name: traefik
+    ports:
+    - "443:443"
+    - "80:80"
+    command:
+      - "--log.level=DEBUG"
+      - "--api"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:443"
+    volumes:
+    - /home/site/traefik/traefik.toml:/etc/traefik/traefik.toml
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /home/site/traefik/acme.json:/acme.json
+    labels:
+    - "traefik.http.routers.api.rule=Host(`traefik.pickeat.fr`)"
+    - "traefik.http.routers.api.service=api@internal"
+    - "traefik.http.routers.api.entrypoints=https, http"
+    - "traefik.http.routers.api.middlewares=auth"
+    - "traefik.http.middlewares.auth.basicauth.users=gideon:$$apr1$$k2Gp6q5L$$WWzBJo6yjmmBpYJ4HZTmC."
+    - "traefik.http.routers.api.tls=true"
+    - "traefik.http.routers.api.tls.certresolver=pickeat"
+    - "traefik.http.middlewares.routers-middleware.redirectscheme.scheme=https"
+  
+  site:
+    restart: always
+    container_name: site
+    build: www/
+    image: site-pickeat
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.site-pickeat-http.entrypoints=http"
+      - "traefik.http.routers.site-pickeat-http.rule=Host(`pickeat.fr`)"
+      - "traefik.http.routers.site-pickeat-http.middlewares=site-pickeat-https@docker"
+      - "traefik.http.middlewares.site-pickeat-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.site-pickeat.rule=Host(`pickeat.fr`)"
+      - "traefik.http.routers.site-pickeat.entrypoints=https"
+      - "traefik.http.routers.site-pickeat.tls.certresolver=le"
+      - "traefik.http.services.site-pickeat.loadbalancer.server.port=80"
