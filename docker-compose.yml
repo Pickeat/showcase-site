@@ -42,3 +42,21 @@ services:
       - "traefik.http.routers.site-pickeat.entrypoints=https"
       - "traefik.http.routers.site-pickeat.tls.certresolver=le"
       - "traefik.http.services.site-pickeat.loadbalancer.server.port=80"
+
+    registry:
+      restart: always
+      image: registry:2
+      ports:
+        - 5000:5000
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.registry-pickeat-http.entrypoints=http"
+        - "traefik.http.routers.registry-pickeat-http.rule=Host(`registry.pickeat.fr`)"
+        - "traefik.http.routers.registry-pickeat-http.middlewares=registry-pickeat-https@docker"
+        - "traefik.http.middlewares.registry-pickeat-https.redirectscheme.scheme=https"
+        - "traefik.http.routers.registry-pickeat.rule=Host(`registry.pickeat.fr`)"
+        - "traefik.http.routers.registry-pickeat.entrypoints=https"
+        - "traefik.http.routers.registry-pickeat.tls.certresolver=le"
+        - "traefik.http.services.registry-pickeat.loadbalancer.server.port=5000"
+
+
