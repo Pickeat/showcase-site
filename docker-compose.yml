@@ -48,6 +48,10 @@ services:
     image: registry:2
     ports:
       - 5000:5000
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.registry-pickeat-http.entrypoints=http"
@@ -58,5 +62,7 @@ services:
       - "traefik.http.routers.registry-pickeat.entrypoints=https"
       - "traefik.http.routers.registry-pickeat.tls.certresolver=le"
       - "traefik.http.services.registry-pickeat.loadbalancer.server.port=5000"
+    volumes:
+      - /home/showcase-site/registry/auth:/auth
 
 
