@@ -1,28 +1,25 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { NewspaperIcon, PhoneIcon, SupportIcon } from '@heroicons/react/outline'
+import { GlobeIcon, GiftIcon, EmojiHappyIcon } from '@heroicons/react/outline'
 import Peoples from '../Constants/peoples.jpg'
 
 const supportLinks = [
     {
-        name: 'Sales',
-        href: '#',
+        name: 'Des produits en trop ?',
         description:
-            'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
-        icon: PhoneIcon,
+            'Vous avez des produits que vous n’allez pas consommer dans votre frigo, votre jardin ? Au lieu de les jeter à la poubelle, pensez plutôt à PickEat !',
+        icon: GlobeIcon,
     },
     {
-        name: 'Technical Support',
-        href: '#',
+        name: 'Donnez les !',
         description:
-            'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
-        icon: SupportIcon,
+            'Simplement, postez une annonce du produit concerné avec une photo et une courte description, et le tour est joué !',
+        icon: GiftIcon,
     },
     {
-        name: 'Media Inquiries',
-        href: '#',
+        name: 'Un Picker heureux',
         description:
-            'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
-        icon: NewspaperIcon,
+            'Le Picker n’aura plus qu’à le réserver, se mettre d’accord avec vous sur l’horaire à laquelle il va venir le récuperer, et c’est tout ! Un geste simple qui ravira tout le monde !',
+        icon: EmojiHappyIcon,
     },
 ]
 
@@ -38,11 +35,14 @@ export default function Goal() {
                         alt=""
                     />
                 </div>
+                <div className="absolute inset-0 bg-gray-600 mix-blend-multiply" aria-hidden="true" />
                 <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">Support</h1>
-                    <p className="mt-6 max-w-3xl text-xl text-gray-300">
-                        Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
-                        laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.
+                    <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+                        <span>Lutter contre le gaspillage </span>
+                        <span className="block text-green-600">alimentaire</span>
+                        </h1>
+                    <p className="mt-6 max-w-3xl text-xl text-gray-300 text-justify">
+                        PickEat est une application communautaire visant à réduire le gaspillage alimentaire chez les particuliers. Les utilisateurs peuvent donner les produits qu'ils ne consommeront pas afin que d'autres les récupèrent, ou vendre leurs parts de plats vouées à être jetées, l'objectif étant de sensibiliser au gaspillage.
                     </p>
                 </div>
             </div>
@@ -63,12 +63,7 @@ export default function Goal() {
                                     <link.icon className="h-6 w-6 text-white" aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-medium text-gray-900">{link.name}</h3>
-                                <p className="mt-4 text-base text-gray-500">{link.description}</p>
-                            </div>
-                            <div className="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
-                                <a href={link.href} className="text-base font-medium text-indigo-700 hover:text-indigo-600">
-                                    Contact ijeiiauerg<span aria-hidden="true"> &rarr;</span>
-                                </a>
+                                <p className="mt-4 text-base text-gray-500 text-justify">{link.description}</p>
                             </div>
                         </div>
                     ))}
