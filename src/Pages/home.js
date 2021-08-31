@@ -2,7 +2,7 @@ import NavBar from '../Components/NavBar'
 import Pic01 from '../Constants/pic01.jpg'
 import HeroSection from "../Components/HeroSection";
 import Team from "../Components/Team";
-import Contact from "../Components/Contact";
+import Footer from "../Components/Footer";
 import Goal from "../Components/GoalSection";
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
 
             <Goal/>
             <Team/>
-            <Contact/>
+            <Footer/>
         </div>
     )
 }
