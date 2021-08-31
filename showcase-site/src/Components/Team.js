@@ -25,7 +25,7 @@ const people = [
     },
     {
         name: 'Steeven Regnault',
-        role: 'Développeur Backend & DevOps',
+        role: 'CTO, Développeur Backend & DevOps',
         imageUrl: Steeven,
         twitterUrl: '#',
         linkedinUrl: 'https://www.linkedin.com/in/steeven-regnault/',
