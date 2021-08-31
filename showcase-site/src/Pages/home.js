@@ -2,6 +2,7 @@ import NavBar from '../Components/NavBar'
 import Pic01 from '../Constants/pic01.jpg'
 import HeroSection from "../Components/HeroSection";
 import Team from "../Components/Team";
+import Contact from "../Components/Contact";
 
 export default function Home() {
     return (
@@ -32,6 +33,7 @@ export default function Home() {
             </div>
 
             <Team/>
+            <Contact/>
         </div>
     )
 }
