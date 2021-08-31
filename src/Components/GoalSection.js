@@ -16,7 +16,7 @@ const supportLinks = [
         icon: GiftIcon,
     },
     {
-        name: 'Un Picker heureux',
+        name: 'Un Picker heureux !',
         description:
             'Le Picker n’aura plus qu’à le réserver, se mettre d’accord avec vous sur l’horaire à laquelle il va venir le récuperer, et c’est tout ! Un geste simple qui ravira tout le monde !',
         icon: EmojiHappyIcon,
