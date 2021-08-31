@@ -3,6 +3,7 @@ import Pic01 from '../Constants/pic01.jpg'
 import HeroSection from "../Components/HeroSection";
 import Team from "../Components/Team";
 import Contact from "../Components/Contact";
+import Goal from "../Components/GoalSection";
 
 export default function Home() {
     return (
@@ -32,6 +33,7 @@ export default function Home() {
                 </div>
             </div>
 
+            <Goal/>
             <Team/>
             <Contact/>
         </div>
