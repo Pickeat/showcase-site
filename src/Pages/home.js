@@ -4,6 +4,7 @@ import HeroSection from "../Components/HeroSection";
 import Team from "../Components/Team";
 import Footer from "../Components/Footer";
 import Goal from "../Components/GoalSection";
+import Faq from '../Components/Faq';
 
 export default function Home() {
     return (
@@ -35,6 +36,7 @@ export default function Home() {
 
             <Goal/>
             <Team/>
+            <Faq/>
             <Footer/>
         </div>
     )
