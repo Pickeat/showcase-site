@@ -2,12 +2,12 @@ import {Popover, Transition} from "@headlessui/react";
 import Logo from "../Constants/logo.png";
 import {MenuIcon, XIcon} from "@heroicons/react/outline";
 import {Fragment} from "react";
+import {Link} from 'react-scroll';
 
 const navigation = [
-    {name: 'Product', href: '#'},
-    {name: 'Features', href: 'Team'},
-    {name: 'Marketplace', href: '#'},
-    {name: 'Company', href: '#'},
+    {name: 'L\'application', href: 'goal'},
+    {name: 'L\'équipe', href: 'team'},
+    {name: 'F.A.Q', href: 'faq'},
 ]
 
 export default function NavBar() {
@@ -36,13 +36,13 @@ export default function NavBar() {
                     </div>
                     <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                         {navigation.map((item) => (
-                            <a key={item.name} href={item.href}
+                            <Link key={item.name} href="#" to={item.href} spy={true} smooth={true} offset={50} duration={500}
                                className="font-medium text-gray-500 hover:text-gray-900">
                                 {item.name}
-                            </a>
+                            </Link>
                         ))}
-                        <a href="#" className="font-medium text-green-600 hover:text-green-500">
-                            Log in
+                        <a href="https://app.pickeat.fr" className="font-medium text-green-600 hover:text-green-500">
+                            Lancez vous !
                         </a>
                     </div>
                 </nav>

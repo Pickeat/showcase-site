@@ -25,7 +25,7 @@ const supportLinks = [
 
 export default function Goal() {
     return (
-        <div className="bg-white pt-5">
+        <div className="bg-white pt-5" id="goal">
             {/* Header */}
             <div className="relative pb-32">
                 <div className="absolute inset-0">
