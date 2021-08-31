@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import { MailIcon, CameraIcon } from '@heroicons/react/outline'
 
 export default function Contact() {
     return (
@@ -23,6 +23,14 @@ export default function Contact() {
                                 </div>
                                 <div className="ml-3 text-base text-gray-500">
                                     <p>contact@pickeat.fr</p>
+                                </div>
+                            </div>
+                            <div className="mt-6 flex">
+                                <div className="flex-shrink-0">
+                                    <CameraIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />
+                                </div>
+                                <div className="ml-3 text-base text-gray-500 underline">
+                                    <a href="https://www.instagram.com/pickeat_france/?hl=fr">Instagram</a>
                                 </div>
                             </div>
                         </div>
